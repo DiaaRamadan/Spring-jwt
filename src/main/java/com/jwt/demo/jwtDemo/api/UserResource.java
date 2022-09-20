@@ -4,6 +4,7 @@ import com.jwt.demo.jwtDemo.domain.Role;
 import com.jwt.demo.jwtDemo.domain.User;
 import com.jwt.demo.jwtDemo.service.UserService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -12,10 +13,11 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api")
 public class UserResource {
 
-    private  UserService userService;
+    private final   UserService userService;
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
